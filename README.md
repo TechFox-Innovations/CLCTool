@@ -34,7 +34,7 @@ To use Spoink, follow these steps:
    Open a terminal and run the Spoink script with the following command:
 
    ```bash
-   python spoink.py -i your_file.spoink
+   sudo python spoink.py -i your_file.spoink
    ```
 
    Replace `your_file.spoink` with the path to your `.spoink` file.
@@ -48,7 +48,7 @@ To use Spoink, follow these steps:
 Assuming you have an `.spoink` file named `custom_config.spoink`:
 
 ```bash
-python spoink.py -i custom_config.spoink
+ sudo python spoink.py -i custom_config.spoink
 ```
 
 This will read the `custom_config.spoink` file and execute the specified actions.
@@ -56,7 +56,5 @@ This will read the `custom_config.spoink` file and execute the specified actions
 ## Notes
 
 - Spoink uses YAML format for the `.spoink` file. Ensure the file follows proper YAML syntax.
-
-- This is a basic tool and may require customization based on your specific use case.
 
 ---
