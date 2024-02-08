@@ -13,7 +13,7 @@ Spoink is a custom Linux configuration tool that reads and executes actions spec
 To use Spoink, follow these steps:
 
 1. **Install Dependencies:**
-   Ensure that you have Python installed on your system.
+   Ensure that you have Python installed on your SpoinkOS system.
 
 2. **Download Spoink Script:**
    Download the `spoink.py` script to your machine.
