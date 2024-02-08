@@ -13,12 +13,15 @@ Spoink is a custom Linux configuration tool that reads and executes actions spec
 To use Spoink, follow these steps:
 
 1. **Install Dependencies:**
-   Ensure that you have Python installed on your SpoinkOS system.
 
-2. **Download Spoink Script:**
+   ```bash
+   sudo pip install -r ./requirements.txt --break-system-packages
+   ```
+
+3. **Download Spoink Script:**
    Download the `spoink.py` script to your machine.
 
-3. **Create a `.spoink` File:**
+4. **Create a `.spoink` File:**
    Create a YAML file with the extension `.spoink` to define the packages and services you want to install and enable. Refer to the example below:
 
    ```yaml
@@ -30,7 +33,7 @@ To use Spoink, follow these steps:
      - nginx
    ```
 
-4. **Run Spoink:**
+5. **Run Spoink:**
    Open a terminal and run the Spoink script with the following command:
 
    ```bash
