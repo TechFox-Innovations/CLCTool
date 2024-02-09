@@ -1,7 +1,9 @@
 [tool.poetry]
 name = "CLCTool"
 version = "1.6.2"
-description = ""
+description = "Custom Linux Configuration Tool"
+long_description = ""
+long_description_content_type = "text/plain"
 authors = ["SpoinkOSDevs"]
 
 [build-system]
