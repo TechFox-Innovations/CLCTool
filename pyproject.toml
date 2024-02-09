@@ -1,11 +1,8 @@
 [tool.poetry]
 name = "CLCTool"
-version = "0.5.0"
-description = """
-CLCTool - Custom Linux Configuration Tool
+version = "1.6.2"
+description = "CLCTool"
 
-A flexible and scalable tool for customizing Linux configurations.
-"""
 authors = ["SpoinkOSDevs"]
 
 [build-system]
