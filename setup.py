@@ -1,9 +1,9 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name='CLCTool',
     version='0.1',
-    packages=find_packages(),
+    py_modules=['clctool'],
     install_requires=[
         'PyYAML',
     ],
@@ -12,7 +12,12 @@ setup(
             'clctool = clctool:main',
         ],
     },
-    package_data={
-        '': ['*.py'],
-    },
+    long_description="""
+    CLCTool - Custom Linux configuration tool
+    ========================================
+
+    Little but powerful.
+
+    """,
+    long_description_content_type='text/x-rst',
 )
