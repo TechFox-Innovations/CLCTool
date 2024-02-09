@@ -12,4 +12,7 @@ setup(
             'clctool = clctool:main',
         ],
     },
+    package_data={
+        '': ['*.py'],
+    },
 )
