@@ -1,7 +1,6 @@
 [tool.poetry]
 name = "CLCTool"
 version = "0.1.0"
-description = "Custom Linux Configuration Tool for SpoinkOS Deployment"
 authors = ["SpoinkOSDevs"]
 
 [build-system]
