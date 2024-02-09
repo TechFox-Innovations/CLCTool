@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "CLCTool"
 version = "1.6.2"
-description = "CLCTool"
-
+description = ""
+long_description = ""
 authors = ["SpoinkOSDevs"]
 
 [build-system]
