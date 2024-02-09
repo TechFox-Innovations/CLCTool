@@ -1,26 +1,49 @@
+# This workflow is named "Create Release"
 name: Create Release
 
-on: push
+# The workflow is triggered on push events with tags that start with 'v'
+on:
+  push:
+    tags:
+      - 'v*'
 
 jobs:
-  deploy:
+  create_release:
+    # Runs the job on the latest Ubuntu version
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v4
-
-      - name: Generate release tag
-        id: generate_release_tag
-        uses: amitsingh-007/next-release-tag@v5.0.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag_prefix: 'v'
-          tag_template: 'yyyy.mm.dd.i'
+      # Checks out a copy of your repository
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Create Release
-        uses: ncipollo/release-action@v1
+        # Uses the create-github-release action
+        uses: nekofar/create-github-release@v1
         with:
-          tag: ${{ steps.generate_release_tag.outputs.next_release_tag }}
-          generateReleaseNotes: true
-          makeLatest: true
+          # Defines the tag name for the release (e.g., v1.0.0).
+          tag: ${{ github.ref_name }}
+
+          # (Optional) Files to include in the release
+          files: |
+            dist/release-assets/*  
+
+          # (Optional) Defines the title of the release
+          title: Release ${{ github.ref_name }}
+
+          # (Optional) Allows multiline release notes
+          notes: |
+            This is the release notes for version ${{ github.ref_name }}.
+            Add any important information here.
+
+          # (Optional) Set to "true" to create a draft release. Default is "false"
+          draft: false
+
+          # (Optional) Set to "true" to create a pre-release. Default is "false"
+          prerelease: false
+
+          # (Optional) Set to "true" to mark this release as the latest. Default is "false"
+          latest: true
+
+          # (Optional) GitHub token for authentication. Default: ${{ github.token }}. If not provided, it will use the repository's default token
+          token: ${{ github.token }}          
