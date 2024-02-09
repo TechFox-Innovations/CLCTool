@@ -28,13 +28,19 @@ Welcome to CLCTool, a powerful and customizable Linux configuration tool designe
     git clone https://github.com/SpoinkOSDevs/CLCTool.git
     ```
 
-2. Change into the CLCTool directory:
+2. Install requirements
+
+    ```bash
+    sudo pip install -r ./requirements.txt --break-system-packages
+    ```
+
+4. Change into the CLCTool directory:
 
     ```bash
     cd CLCTool
     ```
 
-3. Run CLCTool with your desired configuration:
+5. Run CLCTool with your desired configuration:
 
     ```bash
     sudo python clctool.py -m path/to/modules -o module1,module2 -p your_profile -v your_version
