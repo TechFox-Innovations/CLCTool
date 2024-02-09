@@ -92,7 +92,7 @@ def custom_udf(parameters):
 
 ## License
 
-CLCTool is released under the Unlicense license. See the [LICENSE](https://SpoinkOSDevs/CLCTool/LICENSE.md) file for more details.
+CLCTool is released under the Unlicense license. See the [LICENSE](https://github.com/SpoinkOSDevs/CLCTool/LICENSE.md) file for more details.
 
 ## Issue Tracker Link
 
