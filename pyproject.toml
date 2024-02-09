@@ -2,7 +2,6 @@
 name = "CLCTool"
 version = "1.6.2"
 description = ""
-long_description = ""
 authors = ["SpoinkOSDevs"]
 
 [build-system]
