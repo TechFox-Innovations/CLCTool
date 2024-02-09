@@ -1,17 +1,20 @@
-- name: Auto Release
-  uses: CupOfTea696/gh-action-auto-release@v1.0.2
-   with:
-     title: # optional, default is Version $semver
-    # Name for the git tag
-     tag: # optional, default is $version
-    # Whether or not this release should be published as a draft
-     draft: # optional, default is false
-    # The path to the CHANGELOG
-     changelog: # optional, default is CHANGELOG.md
-    # String a CHANGELOG entry must contain to be used as the entry for this release
-     changelog-entry: # optional, default is $version
-    # Pattern the commit message must match to create a release
-     regex: # optional
-    # Pattern the commit message must match to mark the release as a prerelease
-     prerelease-regex: # optional
+            - name: Automatic Releases 2
+  # You may pin to the exact commit or the version.
+  # uses: dciborow/action-github-releases@5315761c617e08062df56079ad82421cc5ab8de8
+  uses: dciborow/action-github-releases@v1.0.1 
+  with:
+    # GitHub secret token
+    repo_token: 
+    # Git tag (for automatic releases)
+    automatic_release_tag: # optional
+    # Should this release be marked as a draft?
+    draft: # optional
+    # Should this release be marked as a pre-release?
+    prerelease: # optional, default is true
+    # Release title (for automatic releases)
+    title: # optional
+    # Assets to upload to the release
+    files: # optional
+    # Whether to automatically generate the name and body for this release. If name is specified, the specified name will be used; otherwise, a name will be automatically generated
+    generate_release_notes: # optional
           
