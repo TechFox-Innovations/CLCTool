@@ -1,63 +1,95 @@
-# SpoinkCLCT
-
 ---
 
-# Spoink - Custom Linux Configuration Tool
+# CLCTool Documentation
 
 ## Introduction
 
-Spoink is a custom Linux configuration tool that reads and executes actions specified in a `.spoink` file. It provides a way to automate the installation of packages and the configuration of services on a Linux system.
+Welcome to CLCTool, a powerful and customizable Linux configuration tool designed for flexible system setup and deployment.
+
+### Features
+
+- Modular architecture for maximum scalability and customization.
+- Dynamic loading of user-defined modules.
+- User-defined functions (UDFs) for encapsulating complex logic.
+- Conditional task execution and interactive prompts.
+- Seamless integration with the Unlicense license.
+
+## Installation
+
+### Prerequisites
+
+- Python 3.6 or higher
+
+### Instructions
+
+1. Clone the CLCTool repository:
+
+    ```bash
+    git clone https://github.com/yourusername/clctool.git
+    ```
+
+2. Change into the CLCTool directory:
+
+    ```bash
+    cd clctool
+    ```
+
+3. Run CLCTool with your desired configuration:
+
+    ```bash
+    python clctool.py -m path/to/modules -o module1,module2 -p your_profile -v your_version
+    ```
+
+    Replace `path/to/modules` with the path to your module files, `module1,module2` with the desired execution order, `your_profile` with the chosen profile, and `your_version` with the desired version.
 
 ## Usage
 
-To use Spoink, follow these steps:
-
-1. **Install Dependencies:**
-
-   ```bash
-   sudo pip install -r ./requirements.txt --break-system-packages
-   ```
-
-3. **Download Spoink Script:**
-   Download the `spoink.py` script to your machine.
-
-4. **Create a `.spoink` File:**
-   Create a YAML file with the extension `.spoink` to define the packages and services you want to install and enable. Refer to the example below:
-
-   ```yaml
-   packages:
-     - nginx
-     - python3
-
-   services:
-     - nginx
-   ```
-
-5. **Run Spoink:**
-   Open a terminal and run the Spoink script with the following command:
-
-   ```bash
-   sudo python spoink.py -i your_file.spoink
-   ```
-
-   Replace `your_file.spoink` with the path to your `.spoink` file.
-
-## Command-Line Options
-
-- `-i, --input`: Specify the path to the `.spoink` file to be executed.
-
-## Example
-
-Assuming you have an `.spoink` file named `custom_config.spoink`:
+CLCTool provides a simple command-line interface for running your customized installation process. The tool supports various commands and options to tailor the deployment according to your needs.
 
 ```bash
- sudo python spoink.py -i custom_config.spoink
+python clctool.py -m path/to/modules -o module1,module2 -p your_profile -v your_version
 ```
 
-This will read the `custom_config.spoink` file and execute the specified actions.
+- `-m` or `--modules`: Specify the paths to module .spoink files separated by a comma.
+- `-o` or `--order`: Specify the order in which modules should be executed, separated by a comma.
+- `-p` or `--profile`: Specify the profile to use.
+- `-v` or `--version`: Specify the version.
 
-## Notes
+## Configuration
 
-- Spoink uses YAML format for the `.spoink` file. Ensure the file follows proper YAML syntax.
+### Module Configuration
+
+Modules are the building blocks of CLCTool. Each module is defined in a `.spoink` file containing tasks, UDFs, and configurations.
+
+```yaml
+tasks:
+  - command: echo "Running pre-install commands for {profile} version {version}"
+  - install_package: nginx
+  - enable_service: nginx
+  - configure_firewall:
+      - "{profile}_port/tcp"
+      - "443/tcp"
+  - prompt: "Enter the domain for the website: "
+    parameter: "domain"
+  - udf: custom_udf
+  - command: echo "Running post-install commands for {profile} with domain {domain}"
+```
+
+### User-Defined Functions (UDFs)
+
+UDFs allow encapsulating complex logic and reusing it across different parts of the installation process.
+
+```python
+def custom_udf(parameters):
+    print(f"Running a custom UDF with parameters: {parameters}")
+```
+
+## License
+
+CLCTool is released under the Unlicense license. See the [LICENSE](https://SpoinkOSDevs/CLCTool/LICENSE.md) file for more details.
+
+## Issue Tracker Link
+
+- GitHub Issues: [CLCTool Issues](https://github.com/SpoinkOSDevs/CLCTool/issues)
 
 ---
