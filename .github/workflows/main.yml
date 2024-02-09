@@ -4,10 +4,17 @@ on:
     branches:   
       - main
 jobs:
-  tag-release:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: pantheon-systems/action-autotag@v0.1.5
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
+      - name: create-release
+        if: github.event.ref_type == 'tag'
+        uses: arco-design/auto-arco-release@main
         with:
-          gh-token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          changelogPaths: 'docs/changelog.en-US.md,docs/changelog.zh-CN.md'
+          tagName: ${{ steps.get_version.outputs.VERSION }}
