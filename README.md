@@ -1,3 +1,5 @@
+[![Upload Python Package](https://github.com/SpoinkOSDevs/CLCTool/actions/workflows/python-publish.yml/badge.svg)](https://github.com/SpoinkOSDevs/CLCTool/actions/workflows/python-publish.yml)
+
 ---
 
 # CLCTool Documentation
