@@ -4,7 +4,7 @@
 
 ## Introduction
 
-Welcome to CLCTool, a very powerful and customizable Linux configuration tool designed for flexible system setup and deployment.
+Welcome to CLCTool, a powerful and customizable Linux configuration tool designed for flexible system setup and deployment.
 
 ### Features
 
