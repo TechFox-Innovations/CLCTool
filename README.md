@@ -25,7 +25,7 @@ Welcome to CLCTool, a powerful and customizable Linux configuration tool designe
 1. Clone the CLCTool repository:
 
     ```bash
-    git clone https://github.com/SpoinkOSDves/CLCTool.git
+    git clone https://github.com/SpoinkOSDevs/CLCTool.git
     ```
 
 2. Change into the CLCTool directory:
