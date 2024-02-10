@@ -14,7 +14,6 @@ Welcome to CLCTool, a powerful and customizable Linux configuration tool designe
 - Dynamic loading of user-defined modules.
 - User-defined functions (UDFs) for encapsulating complex logic.
 - Conditional task execution and interactive prompts.
-- Seamless integration with the Unlicense license.
 
 ## Installation
 
