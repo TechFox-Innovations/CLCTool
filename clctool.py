@@ -5,20 +5,21 @@ import os
 
 def run_task(task, parameters, udfs):
     for action in task:
-        if 'command' in action:
-            formatted_command = action['command'].format(**parameters)
+        action_type, action_data = action.popitem()
+        if action_type == 'command':
+            formatted_command = action_data.format(**parameters)
             subprocess.run(formatted_command, shell=True)
-        elif 'install_package' in action:
-            install_package(action['install_package'].format(**parameters))
-        elif 'enable_service' in action:
-            enable_service(action['enable_service'].format(**parameters))
-        elif 'configure_firewall' in action:
-            configure_firewall([rule.format(**parameters) for rule in action['configure_firewall']])
-        elif 'prompt' in action:
-            prompt_value = input(action['prompt'].format(**parameters))
-            parameters[action['parameter']] = prompt_value
-        elif 'udf' in action:
-            udf_name = action['udf']
+        elif action_type == 'install_package':
+            install_package(str(action_data).format(**parameters))
+        elif action_type == 'enable_service':
+            enable_service(str(action_data).format(**parameters))
+        elif action_type == 'configure_firewall':
+            configure_firewall([str(rule).format(**parameters) for rule in action_data])
+        elif action_type == 'prompt':
+            prompt_value = input(str(action_data).format(**parameters))
+            parameters[str(action['parameter'])] = prompt_value
+        elif action_type == 'udf':
+            udf_name = str(action_data)
             if udf_name in udfs:
                 udfs[udf_name](parameters)
 
@@ -33,46 +34,30 @@ def configure_firewall(rules):
     for rule in rules:
         subprocess.run(["ufw", "allow", rule])
 
-def load_modules(module_paths):
-    modules = {}
-    for path in module_paths:
-        module_name = os.path.splitext(os.path.basename(path))[0]
-        with open(path, 'r') as file:
-            module_data = yaml.safe_load(file)
-            modules[module_name] = module_data
-    return modules
-
-def read_spoink_files(modules, order, parameters):
-    for module_name in order:
-        module_data = modules.get(module_name, {})
-        tasks = module_data.get('tasks', [])
-        udfs = module_data.get('udfs', {})
-
-        for task in tasks:
-            if 'condition' in task:
-                condition = task['condition'].format(**parameters)
-                if not eval(condition):
-                    continue
-            run_task(task, parameters, udfs)
+def load_module(module_path):
+    module_name = os.path.splitext(os.path.basename(module_path))[0]
+    with open(module_path, 'r') as file:
+        module_data = yaml.safe_load(file)
+    return module_name, module_data
 
 def main():
     parser = argparse.ArgumentParser(description='CLCTool - Custom Linux configuration tool')
-    parser.add_argument('-m', '--modules', help='Specify the paths to the module .spoink files separated by comma', required=True)
-    parser.add_argument('-o', '--order', help='Specify the order in which modules should be executed, separated by comma', required=True)
+    parser.add_argument('-i', '--input', help='Specify the path to a module .spoink file for standalone execution')
     parser.add_argument('-p', '--profile', help='Specify the profile to use', default='default')
     parser.add_argument('-v', '--version', help='Specify the version', default='1.0')
+    parser.add_argument('-m', '--module-args', help='Specify additional module-specific arguments as key-value pairs separated by commas')
     args = parser.parse_args()
-
-    module_paths = args.modules.split(',')
-    order = args.order.split(',')
 
     parameters = {
         'profile': args.profile,
         'version': args.version,
     }
 
-    modules = load_modules(module_paths)
-    read_spoink_files(modules, order, parameters)
+    if args.input:
+        module_name, module_data = load_module(args.input)
+        run_task(module_data.get('tasks', []), parameters, module_data.get('udfs', {}))
+    else:
+        print("No module specified. Use the -i option to provide a module .spoink file.")
 
 if __name__ == "__main__":
     main()
