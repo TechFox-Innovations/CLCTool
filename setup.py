@@ -21,7 +21,7 @@ Usage:
 
 setup(
     name='CLCTool',
-    version='1.3.6',
+    version='2.3.9',
     py_modules=['clctool'],
     install_requires=[
         'PyYAML',
