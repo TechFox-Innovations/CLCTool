@@ -58,10 +58,9 @@ CLCTool provides a simple command-line interface for running your customized ins
 ```
 
 - `-m` or `--modules`: Specify the paths to module .spoink files separated by a comma.
-- `-o` or `--order`: Specify the order in which modules should be executed, separated by a comma.
 - `-p` or `--profile`: Specify the profile to use.
 - `-v` or `--version`: Specify the version.
-
+- `-m` or `--module-args`: Specify additional module-specific arguments as key-value pairs separated by commas
 ## Configuration
 
 ### Module Configuration
