@@ -96,3 +96,6 @@ def custom_udf(parameters):
 - GitHub Issues: [CLCTool Issues](https://github.com/SpoinkOSDevs/CLCTool/issues)
 
 ---
+
+## Demo
+ Link: [Demo Module](https://github.com/SpoinkOSDevs/CLCTModuleRepo/blob/main/modules/demo.spoink)
