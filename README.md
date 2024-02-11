@@ -98,4 +98,4 @@ def custom_udf(parameters):
 ---
 
 ## Demo
- Link: [Demo Module](https://github.com/SpoinkOSDevs/CLCTModuleRepo/blob/main/modules/demo.spoink)
+ Link: [Demo Module](https://github.com/SpoinkOSDevs/CLCTModuleRepo/blob/main/modules/nginx.spoink)
