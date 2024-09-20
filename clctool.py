@@ -67,7 +67,7 @@ def load_module(module_path):
 def parse_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description='CLCTool - Custom Linux configuration tool')
-    parser.add_argument('-i', '--input', help='Specify the path to a module .spoink file for standalone execution')
+    parser.add_argument('-i', '--input', help='Specify the path to a module .fox file for standalone execution')
     parser.add_argument('-p', '--profile', help='Specify the profile to use', default='default')
     parser.add_argument('-v', '--version', help='Specify the version', default='1.0')
     parser.add_argument('-m', '--module-args', help='Specify additional module-specific arguments as key-value pairs separated by commas')
@@ -85,7 +85,7 @@ def main():
         if module_data:
             run_task(module_data.get('tasks', []), parameters, module_data.get('udfs', {}))
     else:
-        logging.info("No module specified. Use the -i option to provide a module .spoink file.")
+        logging.info("No module specified. Use the -i option to provide a module .fox file.")
 
 if __name__ == "__main__":
     main()
