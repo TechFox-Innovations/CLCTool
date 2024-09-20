@@ -16,7 +16,7 @@ Installation:
     pip install clctool
 
 Usage:
-    clctool -m module1.spoink,module2.spoink -o module1,module2 -p your_profile -v 1.0
+    clctool -m module1.spoink,module2.fox -o module1,module2 -p your_profile -v 1.0
 """
 
 setup(
