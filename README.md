@@ -57,7 +57,7 @@ CLCTool provides a simple command-line interface for running your customized ins
  sudo python clctool.py -i path/to/module -p your_profile -v your_version
 ```
 
-- `-i` or `--modules`: Specify the paths to the ``.spoink`` file.
+- `-i` or `--modules`: Specify the paths to the ``.fox`` file.
 - `-p` or `--profile`: Specify the profile to use.
 - `-v` or `--version`: Specify the version.
 - `-m` or `--module-args`: Specify additional module-specific arguments as key-value pairs separated by commas
@@ -66,7 +66,7 @@ CLCTool provides a simple command-line interface for running your customized ins
 
 ### Module Configuration
 
-Modules are the building blocks of CLCTool. Each module is defined in a `.spoink` file containing tasks, UDFs, and configurations.
+Modules are the building blocks of CLCTool. Each module is defined in a `.fox` file containing tasks, UDFs, and configurations.
 
 ### User-Defined Functions (UDFs)
 
@@ -85,4 +85,4 @@ def custom_udf(parameters):
 
 ## Demo
 
- Link: [Demo Module](https://github.com/SpoinkOSDevs/CLCTModuleRepo/blob/main/modules/nginx.spoink)
+ Link: [Demo Module](https://github.com/SpoinkOSDevs/CLCTModuleRepo/blob/main/modules/nginx.fox)
