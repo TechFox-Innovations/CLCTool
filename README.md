@@ -1,4 +1,4 @@
-[![Upload Python Package](https://github.com/SpoinkOSDevs/CLCTool/actions/workflows/python-publish.yml/badge.svg)](https://github.com/SpoinkOSDevs/CLCTool/actions/workflows/python-publish.yml)
+[![Upload Python Package](https://github.com/WolfTech-Innovations/CLCTool/actions/workflows/python-publish.yml/badge.svg)](https://github.com/WolfTech-Innovations/CLCTool/actions/workflows/python-publish.yml)
 
 ---
 
@@ -26,7 +26,7 @@ Welcome to CLCTool, a powerful and customizable Linux configuration tool designe
 1. Clone the CLCTool repository:
 
     ```bash
-    git clone https://github.com/SpoinkOSDevs/CLCTool.git
+    git clone https://github.com/WolfTech-Innovations/CLCTool.git
     ```
 
 2. Install requirements
@@ -79,10 +79,10 @@ def custom_udf(parameters):
 
 ## Issue Tracker Link
 
-- GitHub Issues: [CLCTool Issues](https://github.com/SpoinkOSDevs/CLCTool/issues)
+- GitHub Issues: [CLCTool Issues](https://github.com/WolfTech-Innovations/CLCTool/issues)
 
 ---
 
 ## Demo
 
- Link: [Demo Module](https://github.com/SpoinkOSDevs/CLCTModuleRepo/blob/main/modules/nginx.fox)
+ Link: [Demo Module](https://github.com/WolfTech-Innovations/CLCTModuleRepo/blob/main/modules/nginx.fox)
